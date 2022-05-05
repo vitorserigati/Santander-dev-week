@@ -1,10 +1,20 @@
 package model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tab_correntista")
 public class Correntista {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
+    @Column(length = 20)
     private String Cpf;
+
+    @Column(length = 60)
     private String Nome;
 
+    @Embedded
     private Conta conta;
 
     public Conta getConta() {

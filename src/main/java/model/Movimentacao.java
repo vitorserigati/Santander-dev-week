@@ -1,20 +1,34 @@
 package model;
 
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "tab_movimentacao")
 public class Movimentacao {
-    private Integer Id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "data_hora")
     private LocalDateTime dataHora;
-    private String Descricao;
+
+    
+    private String descricao;
     private Double Valor;
+
+    @Enumerated(EnumType.STRING)
     private MovimentacaoTipo tipo;
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public LocalDateTime getDataHora() {
@@ -26,11 +40,11 @@ public class Movimentacao {
     }
 
     public String getDescricao() {
-        return Descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
-        this.Descricao = descricao;
+        this.descricao = descricao;
     }
 
     public Double getValor() {
