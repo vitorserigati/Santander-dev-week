@@ -16,7 +16,7 @@ public class Movimentacao {
     @Column(name = "data_hora")
     private LocalDateTime dataHora;
 
-    
+
     private String descricao;
     private Double Valor;
 
