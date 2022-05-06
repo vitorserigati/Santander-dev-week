@@ -1,6 +1,4 @@
-package model;
-
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+package com.dio.santander.bankline.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -16,7 +14,16 @@ public class Movimentacao {
     @Column(name = "data_hora")
     private LocalDateTime dataHora;
 
+    public Integer getIdConta() {
+        return idConta;
+    }
 
+    public void setIdConta(Integer idConta) {
+        this.idConta = idConta;
+    }
+
+    @Column (name = "id_conta")
+    private Integer idConta;
     private String descricao;
     private Double Valor;
 
