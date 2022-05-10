@@ -1,5 +1,7 @@
 package com.dio.santander.bankline.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -14,6 +16,10 @@ public class Movimentacao {
     @Column(name = "data_hora")
     private LocalDateTime dataHora;
 
+    @Column (name = "id_conta")
+    private Integer idConta;
+    private String descricao;
+    private Double Valor;
     public Integer getIdConta() {
         return idConta;
     }
@@ -22,10 +28,7 @@ public class Movimentacao {
         this.idConta = idConta;
     }
 
-    @Column (name = "id_conta")
-    private Integer idConta;
-    private String descricao;
-    private Double Valor;
+
 
     @Enumerated(EnumType.STRING)
     private MovimentacaoTipo tipo;
@@ -38,6 +41,8 @@ public class Movimentacao {
         this.id = id;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "data_hora")
     public LocalDateTime getDataHora() {
         return dataHora;
     }
